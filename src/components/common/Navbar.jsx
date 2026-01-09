@@ -4,9 +4,11 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h2 className="logo">Hospital Appointment System</h2>
+      <div className="navbar-left">
+        <span className="app-title">Hospital Appointment System</span>
+      </div>
 
-      <div className="nav-links">
+      <div className="navbar-right">
         <NavLink to="/" end>Home</NavLink>
         <NavLink to="/patients">Patients</NavLink>
         <NavLink to="/doctors">Doctors</NavLink>
