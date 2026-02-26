@@ -1,0 +1,427 @@
+/* Page Container */
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.navbar {
+  background: var(--white);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links span {
+  margin-left: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.nav-links span:hover {
+  color: var(--primary-color);
+}
+
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero-buttons button {
+  margin: 0 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  background: var(--bg-light);
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.feature-card h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.feature-card p {
+  color: var(--text-light);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 2.5rem 2rem;
+  background: var(--white);
+  text-align: center;
+}
+
+.stats h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.stats p {
+  color: var(--text-light);
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 4px;
+}
+
+/* ============================= */
+/* Base Card Layout */
+/* ============================= */
+
+.card {
+  background: var(--white);
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ============================= */
+/* Add Appointment Card */
+/* ============================= */
+
+.appointment-card {
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+/* ============================= */
+/* Appointment Form Layout */
+/* ============================= */
+
+.appointment-form.compact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+/* Two-column rows (desktop) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+/* ============================= */
+/* Form Group */
+/* ============================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.form-group select,
+.form-group input {
+  height: 42px;
+  padding: 0 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background-color: var(--white);
+}
+
+/* Focus state */
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+/* ============================= */
+/* Button */
+/* ============================= */
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0 1.75rem;
+  height: 42px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.primary-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.primary-btn:active {
+  transform: translateY(1px);
+}
+
+/* Align button with input */
+.align-end {
+  display: flex;
+  align-items: center;
+}
+
+/* ============================= */
+/* Responsive (Mobile) */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .align-end {
+    align-items: stretch;
+  }
+
+  .primary-btn {
+    width: 100%;
+  }
+
+  .appointment-card {
+    max-width: 100%;
+  }
+}
+
+/* ============================= */
+/* Upcoming Appointments */
+/* ============================= */
+
+.appointment-list {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Individual appointment row */
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+/* Left section */
+.appointment-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.appointment-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.appointment-patient {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.appointment-doctor {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Right section */
+.appointment-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.scheduled {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Empty state */
+.empty-text {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============================= */
+/* Doctors List */
+/* ============================= */
+
+.doctor-list {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ============================= */
+/* Doctor Card */
+/* ============================= */
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+/* Doctor info */
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.doctor-name {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.doctor-specialization {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Status badge */
+.doctor-status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.doctor-status.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* ============================= */
+/* Patients List */
+/* ============================= */
+
+.patient-list {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ============================= */
+/* Patient Card */
+/* ============================= */
+
+.patient-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+/* Patient info */
+.patient-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.patient-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Status badge */
+.patient-status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.patient-status.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
