@@ -1,15 +1,37 @@
+import Navbar from "../components/common/Navbar";
+import { useState } from "react";
+import AddPatient from "../components/patients/AddPatient";
 import PatientList from "../components/patients/PatientList";
 
 const PatientsPage = () => {
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Patients</h2>
-      <p style={{ color: "#6b7280", marginBottom: "1.5rem" }}>
-        Manage patient records here.
-      </p>
+  const user = JSON.parse(localStorage.getItem("user"));
 
-      <PatientList />
-    </div>
+  if (user.role !== "ADMIN") {
+    return (
+      <>
+        <Navbar />
+        <h3 style={{ padding: "2rem" }}>Access Denied</h3>
+      </>
+    );
+  }
+
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const handlePatientAdded = () => {
+    setRefreshTrigger(prev => prev + 1);
+  };
+
+  return (
+    <>
+      <Navbar />
+
+      <div style={{ padding: "2rem" }}>
+        <h2>Patients</h2>
+
+        <AddPatient onPatientAdded={handlePatientAdded} />
+        <PatientList refreshTrigger={refreshTrigger} />
+      </div>
+    </>
   );
 };
 

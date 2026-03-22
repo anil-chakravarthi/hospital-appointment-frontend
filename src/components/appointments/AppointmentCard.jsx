@@ -2,10 +2,12 @@ const AppointmentCard = ({ appointment }) => {
   return (
     <div className="appointment-item">
       <div className="appointment-left">
-        <p className="appointment-date">{appointment.date}</p>
+        <p className="appointment-date">{appointment.appointmentDate}</p>
+
         <p className="appointment-patient">
-          {appointment.patientName}
+          {appointment.patientName} ({appointment.patientAge || "--"} yrs • {appointment.patientGender || "--"})
         </p>
+
         <p className="appointment-doctor">
           {appointment.doctorName}
         </p>

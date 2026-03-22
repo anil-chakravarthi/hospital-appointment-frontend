@@ -1,18 +1,36 @@
+import Navbar from "../components/common/Navbar";
+import { useState } from "react";
 import AddAppointment from "../components/appointments/AddAppointment";
 import AppointmentList from "../components/appointments/AppointmentList";
 
-const AppointmentsPage = ()=>{
-    return(
-        <div style={{padding:"2rem"}}>
-            <h2>Appointments</h2>
-            <p style={{ color: "#6b7280", marginBottom: "1.5rem" }}>
-                Book and manage appointments here.
-            </p>
+const AppointmentsPage = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-            <AddAppointment />
-            <AppointmentList />
-        </div>
-    )
-}
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const handleAppointmentAdded = () => {
+    setRefreshTrigger(prev => prev + 1);
+  };
+
+  return (
+    <>
+      <Navbar />
+
+      <div style={{ padding: "2rem" }}>
+        <h2>Appointments</h2>
+
+        {/* Only PATIENT can book */}
+        {user.role === "PATIENT" && (
+          <AddAppointment
+            onAppointmentAdded={handleAppointmentAdded}
+            refreshTrigger={refreshTrigger}
+          />
+        )}
+
+        <AppointmentList refreshTrigger={refreshTrigger} />
+      </div>
+    </>
+  );
+};
 
 export default AppointmentsPage;
